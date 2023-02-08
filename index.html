@@ -10,6 +10,9 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="assets/styles/app.css" />
+    <!-- <script>
+      alert("This loads before everything");
+    </script> -->
   </head>
   <body>
     <header>
@@ -29,5 +32,9 @@
       <h2 id="current-calculation">0</h2>
       <h2>Result: <span id="current-result">0</span></h2>
     </section>
+    <script src="assets/scripts/app.js"></script>
   </body>
 </html>
+
+<!--Since script in app.js is dependent on vendor.js 
+  Hence, vendor.js is to be imported before app.js as javascript is order dependent -->
