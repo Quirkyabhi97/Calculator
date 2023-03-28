@@ -1,9 +1,13 @@
 const defaultInput = 0;
 let currentResult = defaultInput;
-calculationDescription = "Addition";
+
+const getUserInput = () => {
+  return parseInt(userInput.value);
+}
 
 const add = () => {
-  currentResult = currentResult + userInput.value;
+  let calculationDescription = `Addition of ${currentResult} + ${getUserInput()}`;
+  currentResult = currentResult + getUserInput();
   outputResult(currentResult, calculationDescription);
 };
 
