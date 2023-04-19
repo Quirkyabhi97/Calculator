@@ -2,7 +2,7 @@ const defaultInput = 0;
 let currentResult = defaultInput;
 // let initialLog = ["1+1 = 2"];
 
-//this function is used here to convert the input into integer as it was fetching it as a string earlier
+//to convert the input into integer as it was fetching it as a string earlier
 const getUserInput = () => {
   return parseInt(userInput.value);
 };
@@ -15,31 +15,47 @@ const getUserInput = () => {
 //   outputLog(initialLog);
 // };
 
+//for code refactoring.
+const createAndWriteResults = (
+  operator,
+  operatorName,
+  initialresult,
+  enteredinput
+) => {
+  let calculationDescription = `${operatorName} of ${initialresult} ${operator} ${enteredinput}`;
+
+  outputResult(currentResult, calculationDescription); //from vendor file
+};
+
 const add = () => {
-  let calculationDescription = `Addition of ${currentResult} + ${getUserInput()}`;
+  let enteredinput = getUserInput();
+  let initialresult = currentResult;
   currentResult = currentResult + getUserInput();
-  outputResult(currentResult, calculationDescription);
+  createAndWriteResults("+", "Addition", initialresult, enteredinput);
   // userLogs(currentResult,+);
 };
 
 const subtract = () => {
-  let calculationDescription = `Subtraction of ${currentResult} - ${getUserInput()}`;
+  let enteredinput = getUserInput();
+  let initialresult = currentResult;
   currentResult = currentResult - getUserInput();
-  outputResult(currentResult, calculationDescription);
+  createAndWriteResults("-", "Subtraction", initialresult, enteredinput);
   // userLogs(currentResult,-);
 };
 
 const multiply = () => {
-  let calculationDescription = `Multiply of ${currentResult} * ${getUserInput()}`;
+  let enteredinput = getUserInput();
+  let initialresult = currentResult;
   currentResult = currentResult * getUserInput();
-  outputResult(currentResult, calculationDescription);
+  createAndWriteResults("*", "Multiplication", initialresult, enteredinput);
   // userLogs(currentResult,+);
 };
 
 const divide = () => {
-  let calculationDescription = `Divide of ${currentResult} / ${getUserInput()}`;
+  let enteredinput = getUserInput();
+  let initialresult = currentResult;
   currentResult = currentResult / getUserInput();
-  outputResult(currentResult, calculationDescription);
+  createAndWriteResults("/", "Division", initialresult, enteredinput);
   // userLogs(currentResult,/);
 };
 
