@@ -1,19 +1,22 @@
 const defaultInput = 0;
 let currentResult = defaultInput;
-// let initialLog = ["1+1 = 2"];
+let logEnteries = [];
 
 //to convert the input into integer as it was fetching it as a string earlier
 const getUserInput = () => {
   return parseInt(userInput.value);
 };
 
-// const userLogs = (num,operator) => {
-//   initialLog.push(
-//     `${currentResult} +${getUserInput()} = ${currentResultOutput.textContent}`
-//   );
-//   alert(initialLog);
-//   outputLog(initialLog);
-// };
+const userLogs = (operation, initialValue, enteredValue, finalValue) => {
+  logEnteries.push({
+    Operation: operation,
+    "Initial Value": initialValue,
+    "Final Value": finalValue,
+    "Entered Value": enteredValue,
+  });
+  console.log(logEnteries);
+  //outputLog(initialLog);
+};
 
 //for code refactoring.
 const createAndWriteResults = (
@@ -32,7 +35,7 @@ const add = () => {
   let initialresult = currentResult;
   currentResult = currentResult + getUserInput();
   createAndWriteResults("+", "Addition", initialresult, enteredinput);
-  // userLogs(currentResult,+);
+  userLogs("ADD", initialresult, enteredinput, currentResult);
 };
 
 const subtract = () => {
