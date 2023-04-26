@@ -10,9 +10,9 @@ const getUserInput = () => {
 const userLogs = (operation, initialValue, enteredValue, finalValue) => {
   logEnteries.push({
     Operation: operation,
-    "Initial Value": initialValue,
-    "Final Value": finalValue,
-    "Entered Value": enteredValue,
+    InitialValue: initialValue,
+    FinalValue: finalValue,
+    EnteredValue : enteredValue,
   });
   console.log(logEnteries);
   //outputLog(initialLog);
@@ -35,7 +35,7 @@ const add = () => {
   let initialresult = currentResult;
   currentResult = currentResult + getUserInput();
   createAndWriteResults("+", "Addition", initialresult, enteredinput);
-  userLogs("ADD", initialresult, enteredinput, currentResult);
+  userLogs("Addition", initialresult, enteredinput, currentResult);
 };
 
 const subtract = () => {
@@ -43,7 +43,7 @@ const subtract = () => {
   let initialresult = currentResult;
   currentResult = currentResult - getUserInput();
   createAndWriteResults("-", "Subtraction", initialresult, enteredinput);
-  // userLogs(currentResult,-);
+  userLogs("Subtraction", initialresult, enteredinput, currentResult);
 };
 
 const multiply = () => {
@@ -51,7 +51,7 @@ const multiply = () => {
   let initialresult = currentResult;
   currentResult = currentResult * getUserInput();
   createAndWriteResults("*", "Multiplication", initialresult, enteredinput);
-  // userLogs(currentResult,+);
+  userLogs("Multiplication", initialresult, enteredinput, currentResult);
 };
 
 const divide = () => {
@@ -59,7 +59,7 @@ const divide = () => {
   let initialresult = currentResult;
   currentResult = currentResult / getUserInput();
   createAndWriteResults("/", "Division", initialresult, enteredinput);
-  // userLogs(currentResult,/);
+  userLogs("Division", initialresult, enteredinput, currentResult);
 };
 
 addBtn.addEventListener("click", add);
