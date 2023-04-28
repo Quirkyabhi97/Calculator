@@ -12,7 +12,7 @@ const userLogs = (operation, initialValue, enteredValue, finalValue) => {
     Operation: operation,
     InitialValue: initialValue,
     FinalValue: finalValue,
-    EnteredValue : enteredValue,
+    EnteredValue: enteredValue,
   });
   console.log(logEnteries);
   //outputLog(initialLog);
@@ -30,36 +30,37 @@ const createAndWriteResults = (
   outputResult(currentResult, calculationDescription); //from vendor file
 };
 
-const add = () => {
+const getCalculationResult = (operatorType, operator) => {
   let enteredinput = getUserInput();
   let initialresult = currentResult;
-  currentResult = currentResult + getUserInput();
-  createAndWriteResults("+", "Addition", initialresult, enteredinput);
-  userLogs("Addition", initialresult, enteredinput, currentResult);
+  if (operatorType == "Addition") {
+    currentResult += enteredinput;
+  } else if (operatorType == "Subtraction") {
+    currentResult -= enteredinput;
+  } else if (operatorType == "Multiplication") {
+    currentResult *= enteredinput;
+  } else if (operatorType == "Division") {
+    currentResult /= enteredinput;
+  }
+
+  createAndWriteResults(operator, operatorType, initialresult, enteredinput);
+  userLogs(operatorType, initialresult, enteredinput, currentResult);
+};
+
+const add = () => {
+  getCalculationResult("Addition", "+");
 };
 
 const subtract = () => {
-  let enteredinput = getUserInput();
-  let initialresult = currentResult;
-  currentResult = currentResult - getUserInput();
-  createAndWriteResults("-", "Subtraction", initialresult, enteredinput);
-  userLogs("Subtraction", initialresult, enteredinput, currentResult);
+  getCalculationResult("Subtraction", "-");
 };
 
 const multiply = () => {
-  let enteredinput = getUserInput();
-  let initialresult = currentResult;
-  currentResult = currentResult * getUserInput();
-  createAndWriteResults("*", "Multiplication", initialresult, enteredinput);
-  userLogs("Multiplication", initialresult, enteredinput, currentResult);
+  getCalculationResult("Multiplication", "*");
 };
 
 const divide = () => {
-  let enteredinput = getUserInput();
-  let initialresult = currentResult;
-  currentResult = currentResult / getUserInput();
-  createAndWriteResults("/", "Division", initialresult, enteredinput);
-  userLogs("Division", initialresult, enteredinput, currentResult);
+  getCalculationResult("Division", "/");
 };
 
 addBtn.addEventListener("click", add);
